@@ -1,0 +1,14 @@
+alias watch='watch --color '
+alias "?"="which"
+
+aliasconf() {
+   vim ~/.aliases/$1
+   source ~/.aliases/$1
+}
+compdef '_files -W ~/.aliases' aliasconf
+
+alias whatismyip='wget http://ipinfo.io/ip -qO - | xclip -sel clip && wget http://ipinfo.io/ip -qO -'
+alias wimp=whatismyip
+alias clipboard="xclip -selection c"
+alias ll="ls -lA"
+alias open-ports="sudo netstat -tulpn"

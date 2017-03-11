@@ -1,0 +1,3 @@
+alias forcepush="git push --force"
+alias fixup="git commit --fixup"
+alias diff=meld

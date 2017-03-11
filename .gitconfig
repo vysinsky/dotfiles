@@ -1,0 +1,24 @@
+[core]
+	editor = vim
+	excludesfile = /home/michal/.gitexcludes
+	autocrlf = input
+
+[user]
+	name = Michal Vyšinský
+	email= michal@vysinsky.cz
+	signingkey = 4CAC31F35E38F4CE
+[push]
+	default = current
+[rebase]
+	autosquash = true
+[gui]
+	editor = code
+[diff]
+	tool = meld
+	guitool = meld
+[difftool]
+	prompt = false
+[merge]
+	tool = meld
+[credential]
+	helper = store

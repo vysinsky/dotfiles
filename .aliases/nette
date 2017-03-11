@@ -1,0 +1,3 @@
+tester() {
+    vendor/bin/tester -c /etc/php/php.ini "$@"
+}
