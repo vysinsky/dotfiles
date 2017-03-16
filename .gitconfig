@@ -21,4 +21,4 @@
 [merge]
 	tool = meld
 [credential]
-	helper = store
+	helper = osxkeychain

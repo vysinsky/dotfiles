@@ -1,13 +1,13 @@
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-export ZSH=/home/michal/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
-DEFAULT_USER="michal"
+DEFAULT_USER="vysinm01"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,10 +82,6 @@ source $ZSH/oh-my-zsh.sh
 for f in ~/.aliases/*; do source $f; done
 
 #LOLCOMMITS SETTINGS
-export LOLCOMMITS_FORK=true
-
-export ANDROID_HOME=~/Android/Sdk
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
@@ -94,7 +90,4 @@ export GOPATH=~/go
 export PATH=${PATH}:${GOPATH}/bin
 export PATH=${PATH}:/usr/bin/core_perl
 
-export TERM="xterm-256color"
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-export BROWSER="/usr/sbin/google-chrome-stable"
