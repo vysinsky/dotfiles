@@ -7,7 +7,7 @@ aliasconf() {
 }
 compdef '_files -W ~/.aliases' aliasconf
 
-alias whatismyip='wget http://ipinfo.io/ip -qO - | xclip -sel clip && wget http://ipinfo.io/ip -qO -'
+alias whatismyip='wget http://ipinfo.io/ip -qO - | pbcopy && wget http://ipinfo.io/ip -qO -'
 alias wimp=whatismyip
 alias clipboard="xclip -selection c"
 alias ll="ls -lA"
