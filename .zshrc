@@ -1,3 +1,4 @@
+export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -91,3 +92,9 @@ export PATH=${PATH}:${GOPATH}/bin
 export PATH=${PATH}:/usr/bin/core_perl
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+export NVM_DIR="$HOME/.nvm"
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

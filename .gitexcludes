@@ -1,6 +1,7 @@
 # IDE's meta information #
 ##########################
 # IntelliJ familly
+.idea/
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml

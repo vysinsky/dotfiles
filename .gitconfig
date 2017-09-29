@@ -5,7 +5,7 @@
 
 [user]
 	name = Michal Vyšinský
-	email= michal@vysinsky.cz
+	email = Michal.Vysinsky@DixonsCarphone.com
 	signingkey = 4CAC31F35E38F4CE
 [push]
 	default = current
@@ -22,3 +22,10 @@
 	tool = meld
 [credential]
 	helper = osxkeychain
+[cola]
+	spellcheck = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
