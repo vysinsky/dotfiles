@@ -12,3 +12,4 @@ alias wimp=whatismyip
 alias clipboard="xclip -selection c"
 alias ll="ls -lA"
 alias open-ports="sudo netstat -tulpn"
+alias shellcheck="shellcheck -e SC2086"

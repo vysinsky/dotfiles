@@ -1,12 +1,8 @@
 [core]
-	editor = vim
+	editor = "vim"
 	excludesfile = /home/michal/.gitexcludes
 	autocrlf = input
 
-[user]
-	name = Michal Vyšinský
-	email = Michal.Vysinsky@DixonsCarphone.com
-	signingkey = 4CAC31F35E38F4CE
 [push]
 	default = current
 [rebase]
@@ -28,4 +24,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
+    required = true
+
+[includeIf "gitdir:~/work/"]
+    path = .gitconfig-work
+
+[includeIf "gitdir:~/code/"]
+    path = .gitconfig-personal

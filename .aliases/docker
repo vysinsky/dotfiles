@@ -9,3 +9,5 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+alias portainer="docker run --rm -d -p 9090:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer"
