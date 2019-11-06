@@ -1,6 +1,6 @@
 [core]
 	editor = "vim"
-	excludesfile = /home/michal/.gitexcludes
+	excludesfile = ~/.gitexcludes
 	autocrlf = input
 
 [push]
@@ -26,8 +26,21 @@
 	process = git-lfs filter-process
     required = true
 
+[user]
+	name = Michal Vyšinský
+    email = michal@vysinsky.cz
+    signingkey = 8AD85DFBE2FA30A8
+
 [includeIf "gitdir:~/work/"]
     path = .gitconfig-work
-
-[includeIf "gitdir:~/code/"]
-    path = .gitconfig-personal
+[commit]
+	gpgsign = true
+[color]
+	ui = auto
+	branch = auto
+    status = auto
+    pager = true
+    diff = auto
+    interactive = auto
+[gpg]
+	program = gpg

@@ -8,6 +8,7 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+
 DEFAULT_USER="vysinm01"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -49,7 +50,21 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras autojump extract bgnotify powerline thefuck)
+plugins=(
+    git
+    git-extras
+    autojump
+    extract
+    bgnotify
+    thefuck
+    kubectl
+    yarn
+    npm
+    brew
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    virtualenv
+)
 
 # User configuration
 
@@ -90,9 +105,23 @@ export PATH=${PATH}:${HOME}/.config/composer/vendor/bin
 export GOPATH=~/go
 export PATH=${PATH}:${GOPATH}/bin
 export PATH=${PATH}:/usr/bin/core_perl
+export PATH=${PATH}:/opt/oracle/instantclient_19_3
+export PATH=${PATH}:$HOME/bin
+export DOCKER_USERNAME="developer"
+export DOCKER_PASSWORD="welcome"
 
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 export PATH="$HOME/.yarn/bin:$PATH"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vysinm01/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vysinm01/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vysinm01/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vysinm01/google-cloud-sdk/completion.zsh.inc'; fi
