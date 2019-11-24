@@ -16,8 +16,6 @@
 	prompt = false
 [merge]
 	tool = meld
-[credential]
-	helper = osxkeychain
 [cola]
 	spellcheck = false
 [filter "lfs"]
