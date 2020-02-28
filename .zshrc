@@ -61,7 +61,6 @@ plugins=(
     yarn
     npm
     brew
-    zsh-syntax-highlighting
     zsh-autosuggestions
     virtualenv
 )
