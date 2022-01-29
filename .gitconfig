@@ -16,6 +16,7 @@
 	prompt = false
 [merge]
 	tool = meld
+	conflictstyle = diff3
 [cola]
 	spellcheck = false
 [filter "lfs"]

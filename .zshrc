@@ -1,5 +1,6 @@
 export LANG="en_US.UTF-8"
 export TERM="xterm-256color"
+export LC_CTYPE="en_US.UTF-8"
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -65,6 +66,19 @@ plugins=(
     virtualenv
 )
 
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+### Fix slowness of pastes
+
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/michal/bin:/home/michal/Android/Sdk/platform-tools;/home/michal/.composer/vendor/bin:/home/michal/gradle/bin:/home/michal/Android/Sdk/platform-tools:/home/michal/anaconda3/bin"
@@ -124,3 +138,11 @@ if [ -f '/Users/vysinm01/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vysinm
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/vysinm01/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vysinm01/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export PNPM_HOME="/Users/vysinm01/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
