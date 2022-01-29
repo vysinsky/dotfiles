@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>5105DF1E-325D-4288-99AD-E5AC25247153</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D3C0BD4B-942F-466E-BB2C-07E486D611A7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ryland Herrick</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Thesaurus</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D3C0BD4B-942F-466E-BB2C-07E486D611A7</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>th</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Finding synonyms...</string>
+				<key>script</key>
+				<string>require 'cgi'
+require 'json'
+require 'net/http'
+require 'uri'
+
+class Thesaurus
+  API_TOKEN = 'Q3bmRZdQmvvxVP7lpOkJ'
+  BASE_URL = "http://thesaurus.altervista.org/thesaurus/v1?key=#{API_TOKEN}&amp;language=en_US&amp;output=json"
+
+  def initialize(word)
+    @word = word
+    @url = "#{BASE_URL}&amp;word=#{word}"
+
+    get_synonyms
+  end
+
+  def get_synonyms
+    raw_response = Net::HTTP.get(URI(@url))
+    results = JSON.parse(raw_response)['response'] || [] rescue []
+
+    @synonyms = results.map { |result| result['list'] }
+  end
+
+  def to_alfred
+    "&lt;?xml version='1.0'?&gt;&lt;items&gt;
+    #{alfred_results}
+    &lt;/items&gt;"
+  end
+
+  private
+
+  def alfred_results
+    synonyms = @synonyms.map do |result|
+      formatItem(result['synonyms'].gsub('|', ', '), result['category'])
+    end
+
+    synonyms.any? ? synonyms.join("\n") : formatItem("No results for '#{@word}'")
+  end
+
+  def formatItem(title, subtitle='')
+    title = escape(title)
+    subtitle = escape(subtitle)
+
+    """
+    &lt;item uid='#{title}' arg='#{title}' valid='yes' autocomplete='#{title}'&gt;
+      &lt;title&gt;#{title}&lt;/title&gt;
+      &lt;subtitle&gt;#{subtitle}&lt;/subtitle&gt;
+      &lt;icon&gt;icon.png&lt;/icon&gt;
+    &lt;/item&gt;
+    """
+  end
+
+  def escape(string)
+    CGI.escapeHTML(string)
+  end
+end
+
+puts Thesaurus.new('{query}').to_alfred</string>
+				<key>title</key>
+				<string>Find synonyms</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5105DF1E-325D-4288-99AD-E5AC25247153</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>5105DF1E-325D-4288-99AD-E5AC25247153</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>D3C0BD4B-942F-466E-BB2C-07E486D611A7</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/rylnd/alfred-workflows</string>
+</dict>
+</plist>

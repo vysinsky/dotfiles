@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>dk.aiyo.VirtualBoxControl</string>
+	<key>connections</key>
+	<dict>
+		<key>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>301581C1-995D-4A74-90CD-8B3D929EBF23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Jonas Eriksen</string>
+	<key>description</key>
+	<string>Control Your VirtualBox VMs From Alfred.app</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VirtualBox v2.0.1</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>script</key>
+				<string>if [[ ":$PATH:" != *"usr/local/bin"* ]]; then
+	PATH=$PATH:/usr/local/bin
+fi
+
+VBoxManage {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>301581C1-995D-4A74-90CD-8B3D929EBF23</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>vm</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for Virtual Machines...</string>
+				<key>script</key>
+				<string>sh virtualbox_control.sh "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start, Stop, Pause, Resume, Reset and more</string>
+				<key>title</key>
+				<string>VirtualBox Control</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Control your VirualBox VMs from Alfred.
+
+Surported commands are:
+	- Start
+	- Power Off
+	- ACPI Shutdown
+	- Reset
+	- Pause / Resume
+	- Save State
+	- Take a Screen Shot</string>
+	<key>uidata</key>
+	<dict>
+		<key>301581C1-995D-4A74-90CD-8B3D929EBF23</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>86FD7F90-FA0B-4C1C-B13B-346309B0E5D3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>www.aiyo.dk/alfredapp/v2</string>
+</dict>
+</plist>

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "echo -e '\\a' || (echo -e '\\a'; sleep 1; echo -e '\\a')",
+    "uid" : "6E11B692-3998-40CD-A750-5DD05560D0E2",
+    "name" : "bell",
+    "keyword" : "!bell"
+  }
+}
