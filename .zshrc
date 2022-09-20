@@ -58,7 +58,6 @@ plugins=(
     extract
     bgnotify
     thefuck
-    kubectl
     yarn
     npm
     brew
